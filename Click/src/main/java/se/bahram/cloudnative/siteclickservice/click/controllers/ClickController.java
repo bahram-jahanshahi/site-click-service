@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import se.bahram.cloudnative.siteclickservice.click.models.Click;
 
+import java.util.Objects;
+
 @RestController
 @RequestMapping("/api/v1")
 public class ClickController {
@@ -24,6 +26,6 @@ public class ClickController {
         if (click == null) {
             return false;
         }
-        return true;
+        return !Objects.isNull(click.getClientCode()) && !Objects.isNull(click.getActualClickTime()) && !Objects.isNull(click.getAdCode()) && !Objects.isNull(click.getHostUrl());
     }
 }
