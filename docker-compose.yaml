@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  click-service:
+    container_name: click-service
+    build:
+      dockerfile: Click/Dockerfile
+    platform: linux/x86_64
+    image: click-server:1.0
+    ports:
+      - 8080:8080
