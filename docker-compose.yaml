@@ -6,6 +6,6 @@ services:
     build:
       dockerfile: Click/Dockerfile
     platform: linux/x86_64
-    image: click-server:1.0
+    image: click-service:1.0
     ports:
-      - 8080:8080
+      - 9091:9091

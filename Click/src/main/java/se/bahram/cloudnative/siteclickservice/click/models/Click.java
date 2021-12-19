@@ -1,13 +1,15 @@
 package se.bahram.cloudnative.siteclickservice.click.models;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import org.springframework.lang.NonNull;
 
 import java.util.Date;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Click {
 
     private String clientCode;
