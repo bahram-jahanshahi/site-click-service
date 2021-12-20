@@ -9,6 +9,8 @@ jobs:
       - run:
           name: "What branch am I on now?"
           command: echo $CIRCLE_BRANCH
-      - run: docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+      - run:
+          name: "Login Into Docker Hub"
+          command: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
       - run: docker-compose build
       - run: docker-compose push
