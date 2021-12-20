@@ -14,12 +14,18 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run: mvn clean package
+      - run:
+          name: "Build Jar File By Maven"
+          command: mvn clean package
       - run:
           name: "What is my username?"
           command: echo $DOCKER_USERNAME
       - run:
           name: "Login Into Docker Hub"
           command: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-      - run: docker build -t docker.io/13640225/click-service:1.0 ./Click
-      - run: docker push docker.io/13640225/click-service:1.0
+      - run:
+          name: "Build Docker Image"
+          command: docker build -t docker.io/13640225/click-service:1.0 ./Click
+      - run:
+          name: "Push Docker Image"
+          command: docker push docker.io/13640225/click-service:1.0
