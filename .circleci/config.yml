@@ -13,6 +13,7 @@ jobs:
       - image: cimg/openjdk:17.0.1
     steps:
       - checkout
+      - setup_remote_docker
       - run: mvn clean package
       - run:
           name: "What is my username?"
