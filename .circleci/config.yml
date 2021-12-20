@@ -11,6 +11,6 @@ jobs:
           command: echo $CIRCLE_BRANCH
       - run:
           name: "Login Into Docker Hub"
-          command: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+          command: docker login -u "13640225" -p "Baley2020"
       - run: docker-compose build
       - run: docker-compose push
