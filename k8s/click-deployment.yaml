@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: click-microservice-deployment
+  labels:
+    app: click-microservice
+spec:
+  selector:
+    matchLabels:
+      app: click-microservice
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: click-microservice
+    spec:
+      containers:
+        - name: click-microservice
+          image: docker.io/13640225/click-service:1.0
+          ports:
+            - containerPort: 9091
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: click-microservice-service
+spec:
+  selector:
+    app: click-microservice
+  ports:
+    - protocol: TCP
+      port: 9091
+      targetPort: 9091
+  type: NodePort
