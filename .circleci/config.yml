@@ -7,8 +7,8 @@ jobs:
       - checkout
       - run: mvn clean package
       - run:
-          name: "What branch am I on now?"
-          command: echo $CIRCLE_BRANCH
+          name: "What is my username?"
+          command: echo $DOCKER_USERNAME
       - run:
           name: "Login Into Docker Hub"
           command: docker login -u "13640225" -p "Baley2020"
