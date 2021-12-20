@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout
       - run: mvn clean package
+      - run:
+          name: "What branch am I on now?"
+          command: echo $CIRCLE_BRANCH
       - run: docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
       - run: docker-compose build
       - run: docker-compose push
