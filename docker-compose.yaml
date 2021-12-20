@@ -4,6 +4,7 @@ services:
   click-service:
     container_name: click-service
     build:
+      context: .
       dockerfile: Click/Dockerfile
     platform: linux/x86_64
     image: docker.io/13640225/click-service:1.0
