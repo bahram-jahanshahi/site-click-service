@@ -20,5 +20,5 @@ jobs:
       - run:
           name: "Login Into Docker Hub"
           command: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-      - run: docker-compose build
-      - run: docker-compose push
+      - run: docker build -t docker.io/13640225/click-service:1.0 ./Click
+      - run: docker push docker.io/13640225/click-service:1.0
